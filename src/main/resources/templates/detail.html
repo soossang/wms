@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content">
+
+	<div class="section">
+	<br>
+	<h2>제품 조회</h2>
+	<br>
+	<table>
+		<tr>
+			<th class="align-center">입출고번호</th>
+			<th class="align-center">제품코드</th>
+			<th class="align-center">제품명</th>
+			<th class="align-center">입출고구분</th>
+			<th class="align-right">수량</th>
+			<th class="align-right">거래처</th>
+			<th class="align-right">거래일자</th>
+		</tr>
+		<tr th:each="d : ${list}">
+			<td class="align-center" th:text="${d.t_no}"></td>
+			<td class="align-center" th:text="${d.product_code}"></td>
+			<td class="align-center" th:text="${d.product_name}"></td>
+			<td class="align-center" th:text="${d.t_type == 'I'} ? '입고' : '출고'"></td>
+			<td class="align-center" th:text="${d.t_count}"></td>
+			<td class="align-center" th:text="${d.company_name}"></td>
+			<td class="align-center" th:text="${d.t_date}"></td>
+		</tr>
+	</table>
+	<br>
+	</div>
+	
+	</div>
+</html>

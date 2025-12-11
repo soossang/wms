@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content">
+
+	<div class="section">
+	<br>
+	<h2>제품 조회</h2>
+	<br>
+	<table>
+		<tr>
+			<th class="align-center">제품코드</th>
+			<th class="align-center">제품명</th>
+			<th class="align-center">사이즈</th>
+			<th class="align-right">매입단가</th>
+			<th class="align-right">출고단가</th>
+		</tr>
+		<tr th:each="product : ${list}">
+			<td class="align-center" th:text="${product.product_code}"></td>
+			<td class="align-center" th:text="${product.product_name}"></td>
+			<td class="align-center" th:text="${product.product_size} + ' mm'"></td>
+			<td class="align-right" th:text="'&#8361; ' + ${#numbers.formatInteger(product.product_incost,1,'COMMA')}"></td>
+			<td class="align-right" th:text="'&#8361; ' + ${#numbers.formatInteger(product.product_outcost,1,'COMMA')}"></td>
+		</tr>
+		<tr>
+			<td class="align-center" colspan="3">합계</td>
+			<td class="align-right" th:text="'&#8361; ' + ${#numbers.formatInteger(sumIncost,1,'COMMA')}"></td>
+			<td class="align-right" th:text="'&#8361; ' + ${#numbers.formatInteger(sumOutcost,1,'COMMA')}"></td>
+		</tr>
+	</table>
+	<br>
+	</div>
+	
+	</div>
+</html>

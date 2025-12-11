@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content">
+
+	<div class="section">
+	<br>
+	<h2>입출고 등록</h2>
+	<br>
+	<form name="inoutFrm" action="/addInout" method="post">
+	<table>
+		<tr>
+			<th class="align-center">입출고번호</th>
+			<td><input type="text" name="t_no" th:value="${t_no}" readonly> 예) 20240006</td>
+		</tr>
+		<tr>
+			<th class="align-center">제품코드</th>
+			<td><input type="text" name="product_code"></td>
+		</tr>
+		<tr>
+			<th class="align-center">입출고구분</th>
+			<td><input type="radio" name="t_type" value="I" checked>입고 <input type="radio" name="t_type" value="O">출고</td>
+		</tr>
+		<tr>
+			<th class="align-center">수량</th>
+			<td><input type="text" name="t_count"></td>
+		</tr>
+		<tr>
+			<th class="align-center">거래일자</th>
+			<td><input type="date" name="t_date"></td>
+		</tr>
+		<tr>
+			<th class="align-center">거래처</th>
+			<td>
+			<select name="company_code">
+			<option value="">거래처명</option>
+			<option value="10">서울공장</option>
+			<option value="20">울산공장</option>
+			<option value="30">부산상사</option>
+			<option value="40">광주상사</option>
+			<option value="50">대전상사</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="button" value="입출고등록" onclick="checkFrm()"><input type="reset" value="다시쓰기"></td>
+		</tr>
+	</table>
+	</form>
+	<br>
+	</div>
+	
+	</div>
+</html>

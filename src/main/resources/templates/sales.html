@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content">
+
+	<div class="section">
+	<br>
+	<h2>제품 조회</h2>
+	<br>
+	<table>
+		<tr>
+			<th class="align-center">제품코드</th>
+			<th class="align-center">제품명</th>
+			<th class="align-center">출고수량</th>
+			<th class="align-right">출고매출이익</th>
+		</tr>
+		<tr th:each="p : ${list}">
+			<td class="align-center" th:text="${p.product_code}"></td>
+			<td class="align-center" th:text="${p.product_name}"></td>
+			<td class="align-center" th:text="${p.out_count}"></td>
+			<td class="align-right" th:text="'&#8361; ' + ${#numbers.formatInteger(p.sales_cost ,1,'COMMA')}"></td>
+		</tr>
+		<tr>
+			<td class="align-center" colspan="2">합계</td>
+			<td class="align-center" th:text="${sumOutCount}"></td>
+			<td class="align-right" th:text="'&#8361; ' + ${#numbers.formatInteger(sumSalesCost,1,'COMMA')}"></td>
+		</tr>
+	</table>
+	<br>
+	</div>
+	
+	</div>
+</html>

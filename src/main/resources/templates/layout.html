@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>물류 창고 입출고 프로그램</title>
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/script.js"></script>
+</head>
+<body>
+        <div class="header">
+            <h1>물류 창고 입출고 프로그램</h1>
+        </div>
+        <div class="nav">
+            <ul class="menu">
+                <li><a href="/product">제품조회</a></li>
+                <li><a href="/inout">입출고등록</a></li>
+                <li><a href="/detail">입출고내역조회</a></li>
+                <li><a href="/sales">출고매출이익</a></li>
+                <li><a href="/">홈으로</a></li>
+            </ul>
+        </div>
+        
+		<th:block layout:fragment="content"></th:block>
+		        
+        <div class="footer">
+            <p>Copyright &copy; 2024 KOREA INFORMATION TECHNOLOGY ACADEMY. ALL RIGHTS RESERVED</p>
+        </div>
+</body>
+</html>
