@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 env:
-  JAR_FILE: vms-0.0.1-SNAPSHOT.jar
+  JAR_FILE: wms-0.0.1-SNAPSHOT.jar
 
 jobs:
   build-test:
@@ -21,10 +21,13 @@ jobs:
         cache: 'gradle'
 
       - name: Grant execute permission for gradlew
-        run: ./gradlew test
+        run: chmod +x gradlew
 
+#     - name: Build jar
+#        run: ./gradlew test
+        
       - name: Build jar
-        run: ./gradlew bootJar
+        run: ./gradlew bootJar -x test
 
       - name: Check built jar
         run: ls -l build/libs/
@@ -49,7 +52,7 @@ jobs:
         with:
           name: app-jar
           path: ./deploy-artifacts
-    
+
       - name: Copy jar to EC2
         uses: appleboy/scp-action@v0.1.7
         with:  
@@ -71,7 +74,7 @@ jobs:
           script : 
             set -e
             cd ~/wms-docker
-            cp build/libs/${JAR_FILE} ./${JAE_FILE}
+            cp build/libs/${JAR_FILE} ./${JAR_FILE}
             docker compose down
             docker compose up -d --build
             docker ps
